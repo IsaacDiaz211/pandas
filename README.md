@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# Webapp IdiomasApp - Creada por el agente de IA Minimax M2.1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación frontend desarrollada para consumir el backend REST API disponible en https://github.com/IsaacDiaz211/IdiomasApp. Construida con TypeScript, Bun.js, React, HeldlessUI, Ant Design y Tailwind. Este README está disponible en Español e Inglés.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Español
 
-## React Compiler
+### Descripción
+Interfaz web para gestionar y consumir el servicio de aprendizaje de idiomas expuesto por el backend IdiomasApp. Todo el frontend fue creado por el agente de IA Minimax M2.1 con foco en rapidez de desarrollo y consistencia visual.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Tecnologías
+- TypeScript para tipado estático.
+- Bun.js como entorno de ejecución y administración de dependencias.
+- React para la construcción de componentes.
+- HeldlessUI para componentes accesibles y sin estilos predefinidos.
+- Ant Design para un sistema de componentes listo para producción.
+- Tailwind para estilos utilitarios y personalización rápida.
 
-## Expanding the ESLint configuration
+### Backend
+El servidor backend se encuentra en https://github.com/IsaacDiaz211/IdiomasApp. Esta webapp consume sus endpoints REST para ofrecer la funcionalidad principal.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Ejecución con `start_webapp.sh`
+1. Clona este repositorio y asegúrate de tener el backend corriendo localmente en `http://localhost:3000`.
+2. Otorga permisos de ejecución al script si es necesario: `chmod +x start_webapp.sh`.
+3. Ejecuta `./start_webapp.sh`. El script verifica que el backend esté disponible con `curl` y, si lo está, inicia el entorno de desarrollo con `npm run dev`.
+4. Accede a la URL que indique Vite (por defecto `http://localhost:5173`).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## English
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Overview
+Web interface designed to interact with the IdiomasApp backend REST API hosted at https://github.com/IsaacDiaz211/IdiomasApp. The entire frontend was created by the AI agent Minimax M2.1 to deliver a fast, consistent experience.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Technologies
+- TypeScript for static typing.
+- Bun.js as the runtime and package manager.
+- React for building UI components.
+- HeldlessUI for unstyled, accessible primitives.
+- Ant Design for production-ready component patterns.
+- Tailwind for utility-first styling and quick customization.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Backend
+The backend server lives at https://github.com/IsaacDiaz211/IdiomasApp. This webapp is built to consume its REST API endpoints.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Run with `start_webapp.sh`
+1. Clone this repository and ensure the backend is running locally on `http://localhost:3000`.
+2. Grant execute permission if needed: `chmod +x start_webapp.sh`.
+3. Run `./start_webapp.sh`. The script checks backend availability via `curl` and, when found, starts the development server with `npm run dev`.
+4. Open the URL printed by Vite (defaults to `http://localhost:5173`).
