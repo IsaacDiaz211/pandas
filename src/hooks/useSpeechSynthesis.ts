@@ -29,7 +29,7 @@ export function useSpeechSynthesis() {
       const langCode = getLangCode(lang);
       utterance.lang = langCode;
       if (langCode === 'zh'){
-        utterance.rate = 0.7;
+        utterance.rate = 0.5;
       } else{
         utterance.rate = 0.8;
       }

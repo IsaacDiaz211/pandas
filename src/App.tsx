@@ -37,7 +37,7 @@ function App() {
       message.success('¡Texto procesado correctamente!');
     } catch (error) {
       message.error('Error al procesar el texto. Verifica que el backend esté activo.');
-      console.error(error);
+      console.log(error);
     } finally {
       setLoading(false);
     }

@@ -1,6 +1,6 @@
 import type { TextRequest, TextResponse, ChineseResponse } from '../types/api';
 
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = '/api';
 
 export async function translateText(request: TextRequest): Promise<TextResponse | ChineseResponse> {
   const endpoint = request.l2 === 'zh' ? '/translate/chinese' : '/translate';
@@ -14,10 +14,18 @@ export async function translateText(request: TextRequest): Promise<TextResponse 
   });
 
   if (!response.ok) {
-    throw new Error(`Error: ${response.status} - ${response.statusText}`);
+    const errorText = await response.text().catch(() => '');
+    throw new Error(
+      `Error: ${response.status} - ${response.statusText}${errorText ? ` | Body: ${errorText}` : ''}`
+    );
   }
 
-  return response.json();
+  try {
+    return await response.json();
+  } catch {
+    const rawText = await response.text().catch(() => '');
+    throw new Error(`Respuesta no es JSON válido.${rawText ? ` Body: ${rawText}` : ''}`);
+  }
 }
 
 export async function getLanguages(): Promise<{ languages: string[] }> {
