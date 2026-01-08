@@ -3,8 +3,8 @@ import type { TextRequest, TextResponse, ChineseResponse } from '../types/api';
 const API_BASE_URL = '/api';
 
 export async function translateText(request: TextRequest): Promise<TextResponse | ChineseResponse> {
-  const endpoint = request.l2 === 'zh' ? '/translate/chinese' : '/translate';
-  
+  //const endpoint = request.l2 === 'zh' ? '/translate/chinese' : '/translate';
+  const endpoint = '/translate/1'
   const response = await fetch(`${API_BASE_URL}${endpoint}`, {
     method: 'POST',
     headers: {
